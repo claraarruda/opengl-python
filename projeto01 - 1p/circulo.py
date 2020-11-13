@@ -3,6 +3,7 @@ from OpenGL.GLUT import *
 from OpenGL.GLU import *
 from math import *
 import sys
+import time
 
 pi = 3.14
 
@@ -20,7 +21,7 @@ def keyPressedCircle(bkey, x, y):
     key = bkey.decode("utf-8")
     if key == 'c' or key == 'C':
         print('redimensiona o circulo')
-        for i in range(350):
+        for i in range(5):
             glPushMatrix()
             glScalef(0.5, 0.5, 0.5)
             glClearColor(0.0, 0.0, 0.0, 1.0)
@@ -38,11 +39,12 @@ def keyPressedCircle(bkey, x, y):
 def displayCircle():
     drawCircle()
     glFlush()
+    time.sleep(1/6.0) #diminuir fps
 
 def mainCircle():
     glutInit()
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB)
-    glutInitWindowSize(500, 500)
+    glutInitWindowSize(350, 350)
     glutInitWindowPosition(100, 100)
     glutCreateWindow("Circulo")
     glClearColor(1.0, 1.0, 0.0, 1.0)
