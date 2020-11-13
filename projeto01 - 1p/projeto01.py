@@ -1,4 +1,5 @@
 from circulo import mainCircle
+from triangulo import mainTriangle
 
 def main():
     choice = '0'
@@ -10,7 +11,7 @@ def main():
         if choice == "c" or choice == 'C':
             mainCircle()
         elif choice == "t" or choice == 'T':
-            print("triangulo")
+            mainTriangle()
         elif choice == "q" or choice == 'Q':
             print("quadrados")
         else:
