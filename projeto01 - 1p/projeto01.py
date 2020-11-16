@@ -1,5 +1,6 @@
 from circulo import mainCircle
 from triangulo import mainTriangle
+from quadrados import mainSquares
 
 def main():
     choice = '0'
@@ -13,7 +14,7 @@ def main():
         elif choice == "t" or choice == 'T':
             mainTriangle()
         elif choice == "q" or choice == 'Q':
-            print("quadrados")
+            mainSquares()
         else:
             print("Não existe essa opção.")
             return
