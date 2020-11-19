@@ -7,7 +7,6 @@ import time
 
 pi = 3.14
 
-
 def drawCircle():
     glBegin(GL_POLYGON)
     for i in range(360):
@@ -50,13 +49,13 @@ def mainSquares():
     pygame.display.set_mode(display, DOUBLEBUF | OPENGL)
     gluOrtho2D(0, 300, 0, 300)
     
-    xParabrisa = 75
+    xFarol = 75
     xBase = 75
     xTeto = 130
     xCirEsq = 100
     xCirDir = 150
 
-    yParabrisa = 100
+    yFarol = 100
     yBase = 80
     yTeto = 110
     yCirEsq = 80
@@ -73,21 +72,21 @@ def mainSquares():
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_DOWN:
                     print('DOWN PRESSED')
-                    yParabrisa = yParabrisa - 5
+                    yFarol = yFarol - 5
                     yBase = yBase - 5
                     yTeto = yTeto - 5
                     yCirEsq = yCirEsq - 5
                     yCirDir = yCirDir - 5
                 elif event.key == pygame.K_LEFT:
                     print('LEFT PRESSED')
-                    xParabrisa = xParabrisa - 5
+                    xFarol = xFarol - 5
                     xBase = xBase - 5
                     xTeto = xTeto - 5
                     xCirEsq = xCirEsq - 5
                     xCirDir = xCirDir - 5
                 elif event.key == pygame.K_RIGHT:
                     print('RIGHT PRESSED')
-                    xParabrisa = xParabrisa + 5
+                    xFarol = xFarol + 5
                     xBase = xBase + 5
                     xTeto = xTeto + 5
                     xCirEsq = xCirEsq + 5
@@ -95,7 +94,7 @@ def mainSquares():
             elif event.type == pygame.KEYUP:
                 if event.key == pygame.K_UP:
                     print('UP PRESSED')
-                    yParabrisa = yParabrisa + 5
+                    yFarol = yFarol + 5
                     yBase = yBase + 5
                     yTeto = yTeto + 5
                     yCirEsq = yCirEsq + 5
@@ -119,7 +118,7 @@ def mainSquares():
         glPopMatrix()
 
         glPushMatrix()
-        glTranslated(xParabrisa, yParabrisa, 0)
+        glTranslated(xFarol, yFarol, 0)
         glScalef(0.3, 0.3, 0)
         glColor3f(0.0, 1.0, 1.0)
         drawSquares()
@@ -161,6 +160,7 @@ def mainSquares():
         rotacao_obj %= 360
         glPopMatrix()
 
+        pygame.display.set_caption('Carro')
         pygame.display.flip()
 
 mainSquares()
