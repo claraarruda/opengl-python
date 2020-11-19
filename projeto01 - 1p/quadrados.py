@@ -48,4 +48,6 @@ def mainSquares():
         drawSquares()
         glPopMatrix()
 
+
+        pygame.display.set_caption('Quadrados')
         pygame.display.flip()
