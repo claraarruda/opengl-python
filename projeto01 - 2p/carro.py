@@ -3,6 +3,7 @@ from pygame.locals import *
 from OpenGL.GL import *
 from OpenGL.GLU import *
 from math import *
+import time
 
 pi = 3.14
 
@@ -60,6 +61,9 @@ def mainSquares():
     yTeto = 110
     yCirEsq = 80
     yCirDir = 80
+        
+    rotacao_obj = 0.0
+    veloc_rotacao_obj = 5.0
 
     while True:
         for event in pygame.event.get():
@@ -137,19 +141,25 @@ def mainSquares():
         glFlush()
         glPopMatrix()
 
-        # glPushMatrix()
-        # glTranslatef(xCirEsq, yCirEsq, 0.0)
-        # glScalef(0.5, 0.5, 0.5)
-        # drawCircleOutlined()
-        # glFlush()
-        # glPopMatrix()
+        glPushMatrix()
+        glTranslatef(xCirEsq, yCirEsq, 0.0)
+        glRotate(rotacao_obj, 0.0, 0.0, 1.0)
+        glScalef(0.5, 0.5, 0.5)
+        drawCircleOutlined()
+        glFlush()
+        rotacao_obj += veloc_rotacao_obj
+        rotacao_obj %= 360
+        glPopMatrix()
 
-        # glPushMatrix()
-        # glTranslatef(xCirDir, yCirDir, 0.0)
-        # glScalef(0.5, 0.5, 0.5)
-        # drawCircleOutlined()
-        # glFlush()
-        # glPopMatrix()
+        glPushMatrix()
+        glTranslatef(xCirDir, yCirDir, 0.0)
+        glRotate(rotacao_obj, 0.0, 0.0, 1.0)
+        glScalef(0.5, 0.5, 0.5)
+        drawCircleOutlined()
+        glFlush()
+        rotacao_obj += veloc_rotacao_obj
+        rotacao_obj %= 360
+        glPopMatrix()
 
         pygame.display.flip()
 
