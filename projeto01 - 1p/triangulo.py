@@ -23,7 +23,6 @@ def keyPressed(bkey, x, y):
             glMatrixMode(GL_MODELVIEW)
             glLoadIdentity()  # resetar o estado
 
-            glTranslatef(0.20, 0.20, 0.0)
             glRotate(rotacao_obj, 0.0, 0.0, 1.0)
             glTranslatef(0.20, 0.20, 0.0)  # transformacao realizada primeiro
             rotacao_obj += veloc_rotacao_obj
@@ -46,6 +45,7 @@ def mainTriangle():
     glutCreateWindow('Triangulo')
     glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_ALPHA | GLUT_DEPTH)
     glutInitWindowSize(640, 480)
+    glutInitWindowPosition(100, 100)
     glutDisplayFunc(display)
     glutKeyboardFunc(keyPressed)
     glutIdleFunc(display)
