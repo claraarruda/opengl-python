@@ -10,11 +10,15 @@ def init():
     glLoadIdentity()
 
 rotacao_obj = 0.0
+rotacao_global = 0.0
 veloc_rotacao_obj = 5.0
+veloc_rotacao_global = -1.0
 
 def keyPressed(bkey, x, y):
     global rotacao_obj
     global veloc_rotacao_obj
+    global rotacao_global
+    global veloc_rotacao_global
 
     key = bkey.decode("utf-8")
     if key == 't' or key == 'T':
@@ -23,11 +27,15 @@ def keyPressed(bkey, x, y):
             glMatrixMode(GL_MODELVIEW)
             glLoadIdentity()  # resetar o estado
 
+            glRotate(rotacao_global, 0.0, 0.0, 1.0)
+            # glTranslatef(0.20, 0.20, 0.0)
             glRotate(rotacao_obj, 0.0, 0.0, 1.0)
-            glTranslatef(0.20, 0.20, 0.0)  # transformacao realizada primeiro
+            glTranslatef(-0.20, -0.20, 0.0)
+            
             rotacao_obj += veloc_rotacao_obj
+            rotacao_global += veloc_rotacao_global
             rotacao_obj %= 360
-
+            rotacao_global %= 360     
 
 def display():
     glBegin(GL_TRIANGLES)
